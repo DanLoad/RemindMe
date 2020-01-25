@@ -36,3 +36,27 @@
 
 | $ | source ~/___DomoPhone___/___project___/bin/activate  |
 |---|-------------:|
+
+Устанавлеваем Django в вертуальную среду:
+
+| (project)$ | pip install django  |
+|---|-------------:|
+
+Создаем проект Django:
+
+| (project)$ | django-admin.py startproject ___DomoPhone___ ~/___DomoPhone___  |
+|---|-------------:|
+
+Вы должны получить структуру каталогов, которая выглядит следующим образом:
+
+|  .                                                                |
+|── ./myproject/          # parent project directory                |
+|   ├── manage.py         # Django management script                |
+|   ├── myproject/            # project code directory              |
+|   │   ├── __init__.py                                             |
+|   │   ├── settings.py                                             |
+|   │   ├── urls.py                                                 |
+|   │   └── wsgi.py                                                 |
+|   └── myprojectenv/     # project virtual environment directory   |
+|       └── . . .                                                   |
+|-------------------------------------------------------------------|
