@@ -51,13 +51,23 @@
 
 ```javascript
 .
-└── ./___DomoPhone___/          # parent project directory
+└── ./DomoPhone/          # parent project directory
     ├── manage.py         # Django management script
-    ├── myproject/            # project code directory
+    ├── DomoPhone/            # project code directory
     │   ├── __init__.py
     │   ├── settings.py
     │   ├── urls.py
     │   └── wsgi.py
-    └── myprojectenv/     # project virtual environment directory
+    └── project/     # project virtual environment directory
         └── . . .
+```
+
+Откройте файл настроек в вашем текстовом редакторе:
+
+| (project)$ | nano ~/___DomoPhone___/___DomoPhone___/settings.py  |
+|---|-------------:|
+
+
+```python
+ALLOWED_HOSTS = ["server_domain_or_IP", "127.0.0.1", "127.0.1.1"]
 ```
