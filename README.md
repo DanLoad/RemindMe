@@ -67,7 +67,17 @@
 | (project)$ | nano ~/___DomoPhone___/___DomoPhone___/settings.py  |
 |---|-------------:|
 
+В квадратных скобках введите ip адреса:
 
 ```python
 ALLOWED_HOSTS = ["server_domain_or_IP", "127.0.0.1", "127.0.1.1"]
 ```
+
+И укажите статический каталог:
+
+```python
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+```
+
+Сохраните и закройте файл.
