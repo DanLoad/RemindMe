@@ -51,7 +51,7 @@
 
 ```javascript
 .
-└── ./myproject/          # parent project directory
+└── ./___DomoPhone___/          # parent project directory
     ├── manage.py         # Django management script
     ├── myproject/            # project code directory
     │   ├── __init__.py
