@@ -1,5 +1,7 @@
 # DomoPhone
 
+##Установка:
+
 Обновляем систему:
 
 | $ | sudo apt-get update |
