@@ -50,7 +50,7 @@
 Вы должны получить структуру каталогов, которая выглядит следующим образом:
 
 |  .                                                                |
-|── ./myproject/          # parent project directory                |
+| ─ ./myproject/          # parent project directory                |
 |   ├── manage.py         # Django management script                |
 |   ├── myproject/            # project code directory              |
 |   │   ├── __init__.py                                             |
