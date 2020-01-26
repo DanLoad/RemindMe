@@ -130,6 +130,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 И добавить в файл:
 
+```
 <VirtualHost *:80>
     Alias /static /home/___pi___/___DomoPhone___/static
     <Directory /home/___pi___/___DomoPhone___/static>
@@ -144,4 +145,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
     WSGIProcessGroup ___DomoPhone___
     WSGIScriptAlias / /home/___pi___/___DomoPhone___/___DomoPhone___/wsgi.py
 </VirtualHost>
+```
 
