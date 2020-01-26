@@ -1,7 +1,30 @@
 # DomoPhone
 
-## Установка:
+## Установка статического IP
 
+Заходим в файл конфигурации:
+
+| $ | sudo nano /etc/dhcpcd.conf |
+|---|-------------:|
+
+В конце файла дописываем следующую строчку, чтобы игнорировать DHCP сервера, и назначить нужные нам настройки:
+```
+nodhcp
+```
+После этой строки назначим статический адрес для проводного подключения:
+```
+interface eth0
+static ip_address=192.168.1.101/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+
+interface wlan0
+static ip_address=192.168.1.101/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+```
+
+## Установка Django Apach2 wsgi:
 Обновляем систему:
 
 | $ | sudo apt-get update |
