@@ -300,6 +300,36 @@ from .celery import app as celery_app
 __all__ = ('celery_app',)
 ```
 
+Создать новый файл и добавить туда код
+demoapp/tasks.py:
+
+```python
+# Create your tasks here
+from __future__ import absolute_import, unicode_literals
+
+from celery import shared_task
+
+
+@shared_task
+def add(x, y):
+    return x + y
+
+
+@shared_task
+def mul(x, y):
+    return x * y
+
+
+@shared_task
+def xsum(numbers):
+    return sum(numbers)
+```
+
+Для проверки работы Celery:
+
+| (project)$ | celery -A DomoPhone worker -B -l INFO |
+|---|-------------:|
+
 ## Полезные ссылки:
 [Установка Python Apach2 wsgi](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-debian-8)
 
