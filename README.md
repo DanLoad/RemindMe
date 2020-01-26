@@ -230,5 +230,75 @@ Guest ok = yes
 | $ | sudo chmod -R 777 /home |
 |---|:-------------|
 
+## Установка Celery redis:
+
+Необходимо активировать виртуальную среду:
+
+| $ | source ~/___DomoPhone___/___project___/bin/activate |
+|---|-------------:|
+
+| (project)$ | pip install Celery |
+|---|:-------------|
+| (project)$ | pip install redis |
+
+Откройте файл настроек в вашем текстовом редакторе:
+
+| (project)$ | nano ~/___DomoPhone___/___DomoPhone___/settings.py |
+|---|-------------:|
+
+Давайте добавим связанные с Celery/Redis конфиги:
+```
+# celery
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+```
+Потом нужно создать новый файл и добавить туда код
+Изменить и Domophone На название своего проекта
+
+__file:__ proj/proj/celery.py
+```
+from __future__ import absolute_import, unicode_literals
+
+import os
+
+from celery import Celery
+
+# set the default Django settings module for the 'celery' program.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DomoPhone.settings')
+
+app = Celery('DomoPhone')
+
+# Using a string here means the worker doesn't have to serialize
+# the configuration object to child processes.
+# - namespace='CELERY' means all celery-related configuration keys
+#   should have a `CELERY_` prefix.
+app.config_from_object('django.conf:settings', namespace='CELERY')
+
+# Load task modules from all registered Django app configs.
+app.autodiscover_tasks()
+
+
+@app.task(bind=True)
+def debug_task(self):
+    print('Request: {0!r}'.format(self.request))
+```
+Добавить код в файл:
+
+```
+# proj/proj/__init__.py:
+from __future__ import absolute_import, unicode_literals
+
+# This will make sure the app is always imported when
+# Django starts so that shared_task will use this app.
+from .celery import app as celery_app
+
+__all__ = ('celery_app',)
+```
+
 ## Полезные ссылки:
 [Установка Python Apach2 wsgi](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-debian-8)
+
+[Установка Celery c Django](http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html)
