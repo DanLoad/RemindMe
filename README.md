@@ -301,7 +301,7 @@ __all__ = ('celery_app',)
 ```
 
 Создать новый файл и добавить туда код
-demoapp/tasks.py:
+DomoPhone/tasks.py:
 
 ```python
 # Create your tasks here
