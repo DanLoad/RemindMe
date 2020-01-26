@@ -247,7 +247,8 @@ Guest ok = yes
 |---|-------------:|
 
 Давайте добавим связанные с Celery/Redis конфиги:
-```
+
+```python
 # celery
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
