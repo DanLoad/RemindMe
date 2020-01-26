@@ -230,3 +230,5 @@ Guest ok = yes
 | $ | sudo chmod -R 777 /home |
 |---|:-------------|
 
+## Полезные ссылки:
+[Установка Python Apach2 wsgi](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-debian-8)
