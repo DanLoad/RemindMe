@@ -259,7 +259,8 @@ CELERY_TASK_SERIALIZER = 'json'
 Изменить и Domophone На название своего проекта
 
 __file:__ proj/proj/celery.py
-```
+
+```python
 from __future__ import absolute_import, unicode_literals
 
 import os
@@ -287,7 +288,7 @@ def debug_task(self):
 ```
 Добавить код в файл:
 
-```
+```python
 # proj/proj/__init__.py:
 from __future__ import absolute_import, unicode_literals
 
