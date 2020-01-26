@@ -1,4 +1,4 @@
-# DomoPhone
+# DomoPhone на Raspberry PI 4
 
 ## Установка статического IP
 
