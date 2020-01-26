@@ -131,20 +131,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 И добавить в файл:
 
 <VirtualHost *:80>
-
-    Alias /static /home/sammy/___DomoPhone___/static
-    <Directory /home/sammy/___DomoPhone___/static>
+    Alias /static /home/___pi___/___DomoPhone___/static
+    <Directory /home/___pi___/___DomoPhone___/static>
         Require all granted
     </Directory>
-
-    <Directory /home/sammy/___DomoPhone___/myproject>
+    <Directory /home/___pi___/___DomoPhone___/___DomoPhone___>
         <Files wsgi.py>
             Require all granted
         </Files>
     </Directory>
-
-    WSGIDaemonProcess myproject python-home=/home/sammy/myproject/myprojectenv python-path=/home/sammy/myproject
-    WSGIProcessGroup myproject
-    WSGIScriptAlias / /home/sammy/myproject/myproject/wsgi.py
-
+    WSGIDaemonProcess ___DomoPhone___ python-home=/home/___pi___/___DomoPhone___/___roject___ python-path=/home/___pi___/___DomoPhone___
+    WSGIProcessGroup ___DomoPhone___
+    WSGIScriptAlias / /home/___pi___/___DomoPhone___/___DomoPhone___/wsgi.py
 </VirtualHost>
+
