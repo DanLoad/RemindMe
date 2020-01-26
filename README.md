@@ -87,7 +87,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 | (project)$ | cd ~/___DomoPhone___ |
 |---|-------------:|
 | (project)$ | ./manage.py makemigrations  |
-|---|-------------:|
 | (project)$ | ./manage.py migrate  |
-|---|-------------:|
 
