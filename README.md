@@ -146,4 +146,28 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
     WSGIScriptAlias / /home/pi/DomoPhone/DomoPhone/wsgi.py
 </VirtualHost>
 ```
+Выдача разрешений:
 
+| $ | chmod 664 ~/___DomoPhone___/db.sqlite3 |
+|---|:-------------|
+| $ | chmod 775 ~/___DomoPhone___ |
+| $ | sudo chown :www-data ~/___DomoPhone___/db.sqlite3 |
+| $ | sudo chown :www-data ~/___DomoPhone___ |
+
+Hастроить наш брандмауэр:
+
+| $ | sudo iptables -D INPUT -p tcp --dport 8000 -j ACCEPT |
+|---|:-------------|
+| $ | sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT |
+
+Проверьте файлы Apache, чтобы убедиться, что вы не допустили синтаксических ошибок:
+
+| $ | sudo apache2ctl configtest |
+|---|:-------------|
+
+Последняя строчка должна выглядеть так:
+```
+Output
+. . .
+Syntax OK
+```
