@@ -122,3 +122,29 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 |---|-------------:|
 
 Приставка к вашей строке должна исчезнуть.(myprojectenv)
+
+Чтобы настроить проход WSGI, нам нужно отредактировать файл виртуального хоста по умолчанию:
+
+| $ | sudo nano /etc/apache2/sites-available/000-default.conf |
+|---|-------------:|
+
+И добавить в файл:
+
+<VirtualHost *:80>
+
+    Alias /static /home/sammy/___DomoPhone___/static
+    <Directory /home/sammy/___DomoPhone___/static>
+        Require all granted
+    </Directory>
+
+    <Directory /home/sammy/___DomoPhone___/myproject>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+    WSGIDaemonProcess myproject python-home=/home/sammy/myproject/myprojectenv python-path=/home/sammy/myproject
+    WSGIProcessGroup myproject
+    WSGIScriptAlias / /home/sammy/myproject/myproject/wsgi.py
+
+</VirtualHost>
