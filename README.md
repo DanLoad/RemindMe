@@ -34,17 +34,17 @@
 
 Необходимо активировать виртуальную среду:
 
-| $ | source ~/___DomoPhone___/___project___/bin/activate  |
+| $ | source ~/___DomoPhone___/___project___/bin/activate |
 |---|-------------:|
 
 Устанавлеваем Django в вертуальную среду:
 
-| (project)$ | pip install django  |
+| (project)$ | pip install django |
 |---|-------------:|
 
 Создаем проект Django:
 
-| (project)$ | django-admin.py startproject ___DomoPhone___ ~/___DomoPhone___  |
+| (project)$ | django-admin.py startproject ___DomoPhone___ ~/___DomoPhone___ |
 |---|-------------:|
 
 Вы должны получить структуру каталогов, которая выглядит следующим образом:
@@ -64,7 +64,7 @@
 
 Откройте файл настроек в вашем текстовом редакторе:
 
-| (project)$ | nano ~/___DomoPhone___/___DomoPhone___/settings.py  |
+| (project)$ | nano ~/___DomoPhone___/___DomoPhone___/settings.py |
 |---|-------------:|
 
 В квадратных скобках введите ip адреса:
@@ -86,6 +86,39 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 | (project)$ | cd ~/___DomoPhone___ |
 |---|:-------------|
-| (project)$ | ./manage.py makemigrations  |
+| (project)$ | ./manage.py makemigrations |
 | (project)$ | ./manage.py migrate  |
 
+Создайте административного пользователя для проекта, набрав:
+
+| (project)$ | ./manage.py createsuperuser |
+|---|-------------:|
+
+Что бы собрать все статические данные:
+
+| (project)$ | ./manage.py collectstatic |
+|---|-------------:|
+
+Что бы разрешить трафик на порт 8000, наберите:
+
+| (project)$ | sudo iptables -I INPUT -p tcp --dport 8000 -j ACCEPT |
+|---|-------------:|
+
+Протестируйте свой проект, запустив сервер разработки Django с помощью этой команды:
+
+| (project)$ | ./manage.py runserver 0.0.0.0:8000 |
+|---|-------------:|
+
+В веб-браузере перейдите на доменное имя или IP-адрес вашего сервера, а затем :8000:
+
+|  http://server_domain_or_IP:8000 |
+|----------------|
+
+Когда вы закончите исследование, нажмите CTRL-C в окне терминала, чтобы выключить сервер разработки.
+
+Теперь мы закончили с Django, поэтому мы можем выйти из нашей виртуальной среды, набрав:
+
+| (project)$ | deactivate |
+|---|-------------:|
+
+Приставка к вашей строке должна исчезнуть.(myprojectenv)
