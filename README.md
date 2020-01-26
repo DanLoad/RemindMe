@@ -171,3 +171,39 @@ Output
 . . .
 Syntax OK
 ```
+
+Перезапустите Apache, набрав:
+
+| $ | sudo systemctl restart apache2 |
+|---|:-------------|
+
+## Установка Samba:
+
+| $ | sudo apt-get install samba samba-common-bin |
+|---|:-------------|
+
+Теперь Samba нужно настроить. Для этого открываем файл конфигурации:
+
+| $ | sudo nano /etc/samba/smb.conf |
+|---|:-------------|
+
+И добавляем в конец файла следующие настройки:
+
+```
+[DomoPhone]
+Comment = DomoPhone folder
+Path = /
+Browseable = yes
+Writeable = yes
+only guest = no
+create mask = 0777
+directory mask = 0777
+Public = yes
+Guest ok = yes
+```
+
+Что бы дать права на папки нужно:
+
+| $ | sudo chmod -R 777 /home |
+|---|:-------------|
+
