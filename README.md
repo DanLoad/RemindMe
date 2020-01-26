@@ -132,18 +132,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 ```
 <VirtualHost *:80>
-    Alias /static /home/___pi___/___DomoPhone___/static
-    <Directory /home/___pi___/___DomoPhone___/static>
+    Alias /static /home/pi/DomoPhone/static
+    <Directory /home/pi/DomoPhone/static>
         Require all granted
     </Directory>
-    <Directory /home/___pi___/___DomoPhone___/___DomoPhone___>
+    <Directory /home/pi/DomoPhone/DomoPhone>
         <Files wsgi.py>
             Require all granted
         </Files>
     </Directory>
-    WSGIDaemonProcess ___DomoPhone___ python-home=/home/___pi___/___DomoPhone___/___roject___ python-path=/home/___pi___/___DomoPhone___
-    WSGIProcessGroup ___DomoPhone___
-    WSGIScriptAlias / /home/___pi___/___DomoPhone___/___DomoPhone___/wsgi.py
+    WSGIDaemonProcess DomoPhone python-home=/home/pi/DomoPhone/roject python-path=/home/pi/DomoPhone
+    WSGIProcessGroup DomoPhone
+    WSGIScriptAlias / /home/pi/DomoPhone/DomoPhone/wsgi.py
 </VirtualHost>
 ```
 
