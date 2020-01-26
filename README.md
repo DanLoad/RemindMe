@@ -81,3 +81,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 ```
 
 Сохраните и закройте файл.
+
+Теперь мы можем перенести исходную схему базы данных в нашу базу данных SQLite, используя скрипт управления:
+
+| (project)$ | cd ~/___DomoPhone___ |
+|---|-------------:|
+| (project)$ | ./manage.py makemigrations  |
+|---|-------------:|
+| (project)$ | ./manage.py migrate  |
+|---|-------------:|
+
